@@ -10,10 +10,15 @@
 // But make sure you understand why the correct answer is right.
 
 // Exercise 1. Make an empty array named animals
+animals[]
 
 // Exercise 2. Add the string "frog" to the array
+animals.push("frogs");
 
 // Exercise 3. Add 4 more animals of your choice to the array. Try to add all of them in one line of code.
+animals.push("elephants");
+animals.push("bear");
+animals.push("foxes");
 
 // Exercise 4. Update the first item in the array to be "gorilla"
 
