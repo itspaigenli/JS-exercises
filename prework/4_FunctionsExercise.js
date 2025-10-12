@@ -134,5 +134,5 @@ let scheduleArray = mySchedule.split("--->",2);
 // Did you find this easy or hard? If you used references, which ones helped you?
 // Please answer in a comment below.
 //
-
+//
 // Commit your file to GitHub.
