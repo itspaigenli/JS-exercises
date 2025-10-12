@@ -120,3 +120,4 @@ const myAnswerForExercise22 = "true"; // 2 < 1 is false; false is a Boolean; fal
 // Please answer in a comment below.
 
 // Commit your file to GitHub.
+
