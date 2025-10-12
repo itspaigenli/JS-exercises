@@ -15,6 +15,10 @@
 // prependToString('awesome', 'very') // --> 'veryawesome'
 // prependToString('world', 'hello ') // --> 'hello world'
 // prependToString('nothing', '') // --> 'nothing'
+function prependToString(str1, str2) {
+    return  str2 + str1;
+}
+prependToString(" Hello World", "I love my kitties");
 
 // Exercise 2. Write a function called stringIncludes, which accepts two strings: the first string is a word and the second string is a single character.
 // The function should return true if the first string includes the character, otherwise it should return false.
@@ -23,12 +27,30 @@
 // stringIncludes('awesome', 'e'); // --> true
 // stringIncludes('awesome', 'z'); // --> false
 
+function stringIncludes(str1, char1) {
+    let found = false;
+    for (let i = 0; i < str1.length; i++) {
+        if (str1[i] == char1)
+            found = true;
+    }
+    return found;
+}
+
 // Exercise 3. Write a function called stringLastIndexOf, which accepts two strings: the first is a word and the second is a single character.
 // The function should return the last index at which the character exists or -1 if the character is not found.
 // IMPORTANT: Do not use the built in "string".lastIndexOf() function!
 // Examples:
 // stringLastIndexOf('awesome', 'e'); // --> 6
 // stringLastIndexOf('awesome', 'z'); // --> -1
+
+function stringLastIndexOf(str1, char1) {
+    let ind = -1;
+    for (let i = 0; i < str1.length; i++) {
+        if (str1[i] == char1)
+            ind = i;
+    }
+    return ind;
+}
 
 // Exercise 4. Write a function called removeFromString, which accepts a string, a starting index (number) and a number of characters to remove.
 // The function should return a new string with the characters removed.
@@ -38,6 +60,17 @@
 // removeFromString('Hello School', 0, 6) // --> 'School'
 // removeFromString('Hello School', 2, 4) // --> 'HeSchool'
 // removeFromString('Hello School', 6, 400) // --> 'Hello '
+
+function removeFromString(str1, ind1, int1) {
+    let newString = "";
+    let firstIndex = ind1;
+    let lastIndex = ind1 + int1 -1;
+    for (let i = 0; i < str1.length; i++) {
+        if (i<firstIndex || i > lastIndex)
+            newString = newString + str1[i];
+    }
+    return newString;
+}
 
 // Exercise 5. Write a function called indexOf, which accepts an array and a number.
 // The function should return the first index at which the value exists or -1 if the value is not found.
@@ -50,8 +83,23 @@
 // let arr3 = [1, 2];
 // indexOf(arr3, 10); // --> -1
 
-// Exercise 6. Write a function called includes which accepts a collection, a value, and an optional starting index. The function should return true if the value exists in the collection when we search starting from the starting index. Otherwise, it should return false.
-// The collection can be a string, an array, or an object. If the collection is a string or array, the third parameter is a starting index for where to search from. If the collection is an object, the function searches for the value among values in the object; since objects have no sort order, the third parameter is ignored.
+function indexOf(arr1, int1) {
+    let ind = -1;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] == int1) {
+            ind = i;
+            break;
+        }
+    }
+    return ind;
+}
+
+// Exercise 6. Write a function called includes which accepts a collection, a value, and an optional starting index. The function 
+// should return true if the value exists in the collection when we search starting from the starting index. Otherwise, it should 
+// return false.
+// The collection can be a string, an array, or an object. If the collection is a string or array, the third parameter is a 
+// starting index for where to search from. If the collection is an object, the function searches for the value among values in the
+//  object; since objects have no sort order, the third parameter is ignored.
 // Examples:
 // includes([1, 2, 3], 1) // --> true
 // includes([1, 2, 3], 1, 2) // --> false
@@ -62,4 +110,33 @@
 // includes('abcd', 'e') // --> false
 // includes('abcd', 'a', 2) // --> false
 
+function includes(coll1,val1,ind1) {
+    let coll1Type = typeof coll1;
+    let isArr = Array.isArray(coll1);
+    let found = false;
+
+    if (coll1Type == "string" || isArr ==true) {
+        console.log("Path 1");
+        let firstIndex;
+        if (ind1 == undefined)
+            firstIndex=0;
+        else 
+            firstIndex=ind1;
+
+        for (let i = firstIndex; i < coll1.length; i++) {
+            console.log(i);
+            if (coll1[i] == val1) {
+                console.log("Found " + coll1[i]);
+                found = true;
+            }
+        }
+    }
+    else if (Object.values(coll1).includes(val1)) {
+        console.log("Path 2");
+        found = true; 
+    }
+
+    return found;
+
+}
 // Commit your work
