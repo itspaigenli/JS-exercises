@@ -46,3 +46,4 @@ const obj = {
   prop2: "value2"
 };
 obj.prop1 = "new value";
+ 
